@@ -1,0 +1,27 @@
+name: Price Retrieval
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+        cache: 'npm'
+
+    - run: npm install
+
+    - name: Run retrieval script
+      run: npm start
+
+    - name: Commit changed file
+      uses: EndBug/add-and-commit@v7
+      with:
+        add: 'prices.json'
+        message: 'Updated price json file'
