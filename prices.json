@@ -1,1 +1,59 @@
-{"spotPrice":{"price":"23.252","source":"https://api.metals.live/v1/spot","timestamp":1634568772518},"apmex":{"ASE":{"price":"35.37","source":"https://www.apmex.com/product/23331/1-oz-american-silver-eagle-coin-bu-random-year","description":"apmex - random year ASE - BU 1-19 check/wire"},"bar10oz":{"price":"274.70","source":"https://www.apmex.com/product/21/10-oz-silver-bar-secondary-market","description":"apmex - 10oz secondary market silver bar - 1-9 check/wire"},"buffalo1oz":{"price":"27.77","source":"https://www.apmex.com/product/44447/1-oz-silver-round-buffalo","description":"apmex - 1oz silver round - buffalo - 1-19 check/wire"}},"jm":{"ASE":{"price":"32.14","source":"https://www.jmbullion.com/american-silver-eagle-varied-year/","description":"jm bullion - random year ASE - U - 1-19 check/wire"},"bar10oz":{"price":"269.40","source":"https://www.jmbullion.com/10-oz-silver-bar/","description":"jm bullion - 10oz secondary market silver bar - 1-9 check/wire"},"buffalo1oz":{"price":"27.74","source":"https://www.jmbullion.com/1-oz-sunshine-buffalo-silver-round/","description":"jm bullion - 1oz silver round buffalo (SMI)  - 1-19 check/wire"}},"mmx":{"ASE":{"price":"37.83","source":"https://www.moneymetals.com/silver-american-eagle-one-ounce-coin/9","description":"mmx - 2021 ASE - 1-39"},"bar10oz":{"price":"272.30","source":"https://www.moneymetals.com/10-oz-silver-bars/37","description":"mmx - 10oz secondary market silver bar 1-4"},"buffalo1oz":{"price":"27.52","source":"https://www.moneymetals.com/1-oz-silver-buffalo-round/158","description":"mmx - 1oz silver round buffalo - 1-39"}},"timestamp":1634568775}
+{
+    "spotPrice": {
+        "price": "23.252",
+        "source": "https://api.metals.live/v1/spot",
+        "timestamp": 1634568772518
+    },
+    "apmex": {
+        "ASE": {
+            "price": "35.37",
+            "source": "https://www.apmex.com/product/23331/1-oz-american-silver-eagle-coin-bu-random-year",
+            "description": "apmex - random year ASE - BU 1-19 check/wire"
+        },
+        "bar10oz": {
+            "price": "274.70",
+            "source": "https://www.apmex.com/product/21/10-oz-silver-bar-secondary-market",
+            "description": "apmex - 10oz secondary market silver bar - 1-9 check/wire"
+        },
+        "buffalo1oz": {
+            "price": "27.77",
+            "source": "https://www.apmex.com/product/44447/1-oz-silver-round-buffalo",
+            "description": "apmex - 1oz silver round - buffalo - 1-19 check/wire"
+        }
+    },
+    "jm": {
+        "ASE": {
+            "price": "32.14",
+            "source": "https://www.jmbullion.com/american-silver-eagle-varied-year/",
+            "description": "jm bullion - random year ASE - U - 1-19 check/wire"
+        },
+        "bar10oz": {
+            "price": "269.40",
+            "source": "https://www.jmbullion.com/10-oz-silver-bar/",
+            "description": "jm bullion - 10oz secondary market silver bar - 1-9 check/wire"
+        },
+        "buffalo1oz": {
+            "price": "27.74",
+            "source": "https://www.jmbullion.com/1-oz-sunshine-buffalo-silver-round/",
+            "description": "jm bullion - 1oz silver round buffalo (SMI)  - 1-19 check/wire"
+        }
+    },
+    "mmx": {
+        "ASE": {
+            "price": "37.83",
+            "source": "https://www.moneymetals.com/silver-american-eagle-one-ounce-coin/9",
+            "description": "mmx - 2021 ASE - 1-39"
+        },
+        "bar10oz": {
+            "price": "272.30",
+            "source": "https://www.moneymetals.com/10-oz-silver-bars/37",
+            "description": "mmx - 10oz secondary market silver bar 1-4"
+        },
+        "buffalo1oz": {
+            "price": "27.52",
+            "source": "https://www.moneymetals.com/1-oz-silver-buffalo-round/158",
+            "description": "mmx - 1oz silver round buffalo - 1-39"
+        }
+    },
+    "timestamp": 1634568775
+}
