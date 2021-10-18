@@ -56,6 +56,27 @@ function getJMBuffalo1oz(data) {
     return priceHTML.text().replace('$', '').trim();
 }
 
+function getMMXASEPrice(data) {
+    const $ = cheerio.load(data);
+
+    const priceHTML = $("#premium_data_parent tr[data-range='1'] td:last-child");
+    return priceHTML.text().replace('$', '').trim();
+}
+
+function getMMXBar10OzPrice(data) {
+    const $ = cheerio.load(data);
+
+    const priceHTML = $("#premium_data_parent tr[data-range='1'] td:last-child");
+    return priceHTML.text().replace('$', '').trim();
+}
+
+function getMMXBuffalo1oz(data) {
+    const $ = cheerio.load(data);
+
+    const priceHTML = $("#premium_data_parent tr[data-range='1'] td:last-child");
+    return priceHTML.text().replace('$', '').trim();
+}
+
 axios.all([
     axios.get('https://api.metals.live/v1/spot'),
     axios.get('https://www.apmex.com/product/23331/1-oz-american-silver-eagle-coin-bu-random-year'),
@@ -64,6 +85,9 @@ axios.all([
     axios.get('https://www.jmbullion.com/american-silver-eagle-varied-year/'),
     axios.get('https://www.jmbullion.com/10-oz-silver-bar/'),
     axios.get('https://www.jmbullion.com/1-oz-sunshine-buffalo-silver-round/'),
+    axios.get('https://www.moneymetals.com/silver-american-eagle-one-ounce-coin/9'),
+    axios.get('https://www.moneymetals.com/10-oz-silver-bars/37'),
+    axios.get('https://www.moneymetals.com/1-oz-silver-buffalo-round/158'),
 ]).then(axios.spread(
     (
         spotPriceResponse,
@@ -72,7 +96,10 @@ axios.all([
         apmex1ozBuffaloResponse,
         jmASEResponse,
         jm10ozResponse,
-        jm1ozBuffaloResponse
+        jm1ozBuffaloResponse,
+        mmxASEResponse,
+        mmx10ozResponse,
+        mmx1ozBuffaloResponse,
     ) => {
         return {
             spotPrice: {
@@ -113,6 +140,23 @@ axios.all([
                     source: "https://www.jmbullion.com/1-oz-sunshine-buffalo-silver-round/",
                     description: "jm bullion - 1oz silver round buffalo (SMI)  - 1-19 check/wire"
                 },
+            },
+            mmx: {
+                ASE: {
+                    price: getMMXASEPrice(mmxASEResponse.data),
+                    source: "https://www.moneymetals.com/silver-american-eagle-one-ounce-coin/9",
+                    description: "mmx - 2021 ASE - 1-39",
+                },
+                bar10oz: {
+                    price: getMMXBar10OzPrice(mmx10ozResponse.data),
+                    source: "https://www.moneymetals.com/10-oz-silver-bars/37",
+                    description: "mmx - 10oz secondary market silver bar 1-4"
+                },
+                buffalo1oz: {
+                    price: getMMXBuffalo1oz(mmx1ozBuffaloResponse.data),
+                    source: "https://www.moneymetals.com/1-oz-silver-buffalo-round/158",
+                    description: "mmx - 1oz silver round buffalo - 1-39"
+                }
             },
             timestamp: Math.floor(new Date().getTime() / 1000)
         }
