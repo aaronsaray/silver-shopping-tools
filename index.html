@@ -79,6 +79,7 @@
                 <th></th>
                 <th><a href="https://www.apmex.com/" target="_blank">APMEX</a></th>
                 <th><a href="https://www.jmbullion.com/" target="_blank">JM Bullion</a></th>
+                <th><a href="https://www.moneymetals.com/" target="_blank">Money Metals Exchange</a></th>
             </tr>
         </thead>
         <tbody>
@@ -90,6 +91,9 @@
                 <td>
                     <a id="jm-buffalo1oz" href="" target="_blank"></a>
                 </td>
+                <td>
+                    <a id="mmx-buffalo1oz" href="" target="_blank"></a>
+                </td>
             </tr>
             <tr>
                 <th>1 oz ASE (random year)</th>
@@ -98,6 +102,9 @@
                 </td>
                 <td>
                     <a id="jm-ASE" href="" target="_blank"></a>
+                </td>
+                <td>
+                    <a id="mmx-ASE" href="" target="_blank"></a><sup>*</sup>
                 </td>
             </tr>
             <tr>
@@ -108,11 +115,17 @@
                 <td>
                     <a id="jm-bar10oz" href="" target="_blank"></a>
                 </td>
+                <td>
+                    <a id="mmx-bar10oz" href="" target="_blank"></a>
+                </td>
             </tr>
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="3">Last parsed: <span id="parsed"></span></td>
+                <td colspan="4">Last parsed: <span id="parsed"></span></td>
+            </tr>
+            <tr>
+                <td colspan="4"><sup>*</sup> 2021 only</td>
             </tr>
         </tfoot>
     </table>
@@ -145,7 +158,7 @@
             const spotPrice = parseFloat(data.spotPrice.price).toFixed(2);
             document.getElementById('spot').innerText = dollar(spotPrice);
 
-            ['apmex', 'jm'].forEach(vendor => {
+            ['apmex', 'jm', 'mmx'].forEach(vendor => {
                 ['ASE', 'bar10oz', 'buffalo1oz'].forEach(type => {
                     const element = document.getElementById(vendor + '-' + type);
                     const price = parseFloat(data[vendor][type].price).toFixed(2);
