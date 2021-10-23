@@ -79,7 +79,7 @@
                 <th></th>
                 <th><a href="https://www.apmex.com/" target="_blank">APMEX</a></th>
                 <th><a href="https://www.jmbullion.com/" target="_blank">JM Bullion</a></th>
-                <th><a href="https://www.moneymetals.com/" target="_blank">Money Metals Exchange</a></th>
+                <th><a href="https://www.moneymetals.com/" target="_blank">Money Metals Ex.</a></th>
             </tr>
         </thead>
         <tbody>
@@ -119,13 +119,28 @@
                     <a id="mmx-bar10oz" href="" target="_blank"></a>
                 </td>
             </tr>
+            <tr>
+                <th>$5 face Junk Dimes</th>
+                <td>
+                    <a id="apmex-junk5Dimes" href="" target="_blank"></a>
+                </td>
+                <td>
+                    <a id="jm-junk5Dimes" href="" target="_blank"></a>
+                </td>
+                <td>
+                    <a id="mmx-junk5Dimes" href="" target="_blank"></a><sup>**</sup>
+                </td>
+            </tr>
         </tbody>
         <tfoot>
             <tr>
                 <td colspan="4">Last parsed: <span id="parsed"></span></td>
             </tr>
             <tr>
-                <td colspan="4"><sup>*</sup> 2021 only</td>
+                <td colspan="4">
+                    <sup>*</sup> 2021 only<br>
+                    <sup>**</sup> Mercury dimes only
+                </td>
             </tr>
         </tfoot>
     </table>
@@ -159,10 +174,21 @@
             document.getElementById('spot').innerText = dollar(spotPrice);
 
             ['apmex', 'jm', 'mmx'].forEach(vendor => {
-                ['ASE', 'bar10oz', 'buffalo1oz'].forEach(type => {
+                ['ASE', 'bar10oz', 'buffalo1oz', 'junk5Dimes'].forEach(type => {
                     const element = document.getElementById(vendor + '-' + type);
-                    const price = parseFloat(data[vendor][type].price).toFixed(2);
-                    element.innerText = dollar(price);
+                    const price = data[vendor][type].price;
+                    let text = '-';
+                    if (price) {
+                        const dollarsAndCents = parseFloat(price).toFixed(2);
+                        text = dollar(dollarsAndCents);
+
+                        if (type === 'junk5Dimes') {
+                            let multiplier = (dollarsAndCents / 5).toFixed(1);
+                            text += '<br><small>(' + multiplier + 'x face)</small>';
+                        }
+                    }
+
+                    element.innerHTML = text;
 
                     const link = data[vendor][type].source;
                     element.setAttribute('href', link);
